@@ -11,6 +11,7 @@ export function createApolloClient(getAccessToken: () => string | null) {
 
   const authLink = setContext(
     (operation: unknown, prevContext: { headers?: Record<string, string> }) => {
+      console.log("operation", operation);
       const token = getAccessToken();
       return {
         headers: {
